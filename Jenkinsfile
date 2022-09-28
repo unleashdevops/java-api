@@ -1,10 +1,19 @@
 pipeline {
     agent any
+    
+    environment{
+        NAME = 'VENKAT'
+    }
+    
+    tools{
+       maven 'm3.8.4'
+    }
 
     stages {
-        stage('Hello') {
+        stage('check maven version') {
             steps {
-                echo 'Hello World'
+                sh "mvn --version"
+                
             }
         }
     }
