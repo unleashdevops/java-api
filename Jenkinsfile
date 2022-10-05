@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script{
              
-                javabuild.package("wish")
+                javabuild("wish")
              
             }
                     
