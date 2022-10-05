@@ -1,9 +1,7 @@
 @Library('shared-library') _
 
 pipeline {
-    agent {
-      label 'ubuntu'
-    }
+    agent any
     
     environment{
         NAME = 'VENKAT'
