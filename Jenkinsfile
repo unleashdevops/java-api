@@ -1,3 +1,5 @@
+@Library('shared-library') _
+
 pipeline {
     agent {
       label 'ubuntu'
@@ -15,6 +17,7 @@ pipeline {
 
         stage('cleanup'){
             steps{
+            helloWorld()
             cleanWs()
             checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/unleashdevops/java-api.git']]]
             }
@@ -24,7 +27,7 @@ pipeline {
             steps {
 
                 dir('wish') {
-                sh "mvn validate"            
+                javabuild.package()            
             }
                     
             }
