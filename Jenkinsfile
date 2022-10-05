@@ -24,9 +24,9 @@ pipeline {
         stage('Validate') {
             steps {
                 script{
-                dir('wish') {
-                javabuild.package()
-                }
+             
+                javabuild.package("wish")
+             
             }
                     
             }
